@@ -41,13 +41,21 @@ post '/save' do
   erb :new_url
 end
 
+get '/stats/:redirect/' do
+  @dest = Destination.first(:url_code=>params['redirect'])
+  if @dest == nil
+    rase error 'No suck URL found in our database.'
+  else
+    erb :extended_stats
+  end
+end
 
 post '/:redirect' do
   @dest = Destination.first(:url_code=>params['redirect'])
   @dest.visit_count += 1
   @dest.save
   @hit = @dest.hits.new(:remote_host=>env['REMOTE_ADDR'],
-                        :referrer=>request.referrer,
+                        :referrer=>params['referrer'],
                         :time_stamp=>Time.now)
   @hit.save
   redirect @dest.url, 301

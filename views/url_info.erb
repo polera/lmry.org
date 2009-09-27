@@ -1,5 +1,5 @@
 <div id="main">
-<h2><%=@dest.url_code%> ==> <%=@dest.url%></h2>
+<h2><%=@dest.url_code%> ==> <a href="#" onclick="document.forms.follow_link.submit();"><%=@dest.url%></a></h2>
 <table class='url_data'>
     <tr><td>Visit count</td><td><%=@dest.visit_count%></td></tr>
     <tr><td>Created on</td><td><%=@dest.created_at.strftime("%m/%d/%Y")%></td></tr>
@@ -11,4 +11,6 @@ Given the information above, <a href="#" onclick="document.forms.follow_link.sub
 <div>
     <a href="/stats/<%=@dest.url_code%>/">View extended stats</a>
 </div>
-<form method="post" action="/<%=@dest.url_code%>" name="follow_link"></form>
+<form method="post" action="/<%=@dest.url_code%>" name="follow_link">
+<input type="hidden" name="referrer" value="<%=@referrer%>">    
+</form>
