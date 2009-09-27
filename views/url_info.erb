@@ -1,0 +1,5 @@
+You are headed to <%=@dest.url%> which has been visited <%=@dest.visit_count%> times since <%=@dest.created_at%>.  If you want to continue, <form method="post" action="/<%=@dest.url_code%>"><input type="Submit" value="Go!"/></form>
+
+<div>
+    <a href="/stats/<%=@dest.url_code%>/">View extended stats</a>
+</div>
