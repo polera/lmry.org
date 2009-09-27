@@ -8,7 +8,8 @@ require 'lib/models.rb'
 
 
 error do
-    request.env['sinatra.error'].message
+    @error = request.env['sinatra.error'].message
+    erb :error_page
 end
 
 get '/xml' do
@@ -61,6 +62,7 @@ get '/:redirect' do
   end
   @dest.entry_count += 1
   @dest.save
+  @visit_ratio = (@dest.visit_count/@dest.entry_count.to_f * 100).to_i
   erb :url_info
 end
 

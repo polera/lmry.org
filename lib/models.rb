@@ -9,6 +9,7 @@ class Destination
   property :entry_count, Integer, :default => 0
   property :created_at,  DateTime
   property :created_by,  String
+  property :staff_verified, Boolean, :default => false
   has n, :hits
 end
 

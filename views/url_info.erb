@@ -1,5 +1,14 @@
-You are headed to <%=@dest.url%> which has been visited <%=@dest.visit_count%> times since <%=@dest.created_at%>.  If you want to continue, <form method="post" action="/<%=@dest.url_code%>"><input type="Submit" value="Go!"/></form>
-
+<div id="main">
+<h2><%=@dest.url_code%> ==> <%=@dest.url%></h2>
+<table class='url_data'>
+    <tr><td>Visit count</td><td><%=@dest.visit_count%></td></tr>
+    <tr><td>Created on</td><td><%=@dest.created_at.strftime("%m/%d/%Y")%></td></tr>
+    <tr><td>Continue percentage</td><td><%=@visit_ratio%>%</td></tr>
+    <tr><td>Staff verified</td><td><%=@dest.staff_verified%></td></tr>
+</table>
+Given the information above, <a href="#" onclick="document.forms.follow_link.submit();">click here if you would like to continue</a>.
+</div>
 <div>
     <a href="/stats/<%=@dest.url_code%>/">View extended stats</a>
 </div>
+<form method="post" action="/<%=@dest.url_code%>" name="follow_link"></form>
