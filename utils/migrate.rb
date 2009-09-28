@@ -3,7 +3,7 @@ require 'dm-core'
 
 require 'lib/models.rb'
 
-Destination.auto_migrate! unless Destination.table_exists?
+Destination.auto_migrate!
 
 # Populate some sample data
 

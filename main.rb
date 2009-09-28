@@ -42,14 +42,13 @@ post '/save' do
     @recycled_link = true
     @hash = @existing_destination.url_code
   end
-  
   erb :new_url
 end
 
 get '/stats/:redirect' do
   @dest = Destination.first(:url_code=>params['redirect'])
   if @dest == nil
-    rase error 'No suck URL found in our database.'
+    raise error 'No such URL found in our database.'
   else
     erb :extended_stats
   end

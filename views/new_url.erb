@@ -1,5 +1,5 @@
 <h2>Your shortened URL is:</h2>
-<%if @recyled_link = true%>
-Hey, this URL is recycled.  Must be popular...
-<% end %>
-Your url is <a href="<%=@site%>/<%=@hash%>"><%=@site%>/<%=@hash%></a>
+    <% if @recyled_link.to_s == 'true'%>
+        Hey, this URL is recycled.  Must be popular...
+    <% end %>
+<h2><a href="<%=@site%>/<%=@hash%>"><%=@site%>/<%=@hash%></a></h2>
