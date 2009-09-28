@@ -4,7 +4,7 @@ require 'dm-core'
 require 'lib/models.rb'
 
 @@POOL = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
-@@site = ''
+@@site = 'http://lmry.org'
 
 
 error do

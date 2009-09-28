@@ -5,5 +5,15 @@
     <title>lmry.org</title>
     <link rel="stylesheet" href="/lmry.css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+    <script>
+     function saveURL(){
+        $.post("/save",{},
+          function(data){
+            //alert(data);
+            $("#saved_url").html(data);
+          }, "html");
+          $("#saved_url").fadeIn("slow");
+      }
+    </script>
 </head>
 <body>

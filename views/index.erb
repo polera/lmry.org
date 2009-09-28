@@ -4,10 +4,12 @@
 	
 </div>
 <div id="content">
-<form method="post" action="/save">
+<form method="post" action="javascript:saveURL();">
     Enter a URL: <input type="text" name="url" size="65"/>
     <br/>
-    <input type="Submit" value="Save!"/>
+    <input type="Submit" value="Create"/>
 </form>
+</div>
+<div id="saved_url">
 </div>
 <%=erb(:footer)%>

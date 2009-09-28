@@ -33,6 +33,17 @@ div#content {
 	border-bottom: thin solid #a6a6a6;
 }
 
+div#saved_url {
+	font-size: .8em;
+	line-height: 1.5;
+	width: 500px;
+	margin-left: auto;
+	margin-top: 50px;
+	margin-right: auto;
+	padding-bottom: 15px;
+	display: none;
+}
+
 a{
 	color: #741332;
 	text-decoration: none;
