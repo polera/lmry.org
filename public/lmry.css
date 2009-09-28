@@ -2,3 +2,42 @@ body{
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
 	height: 100%;
 }
+
+span#sub50{
+	font-size: .50em;
+	color: #2f466a;
+	float: right;
+	text-transform: uppercase;
+}
+
+div#header {
+	font-size: 1.75em;
+	font-weight: bold;
+	width: 500px;
+	margin-left: auto;
+	margin-top: 50px;
+	margin-right: auto;
+	border-bottom: thin solid #a6a6a6;
+	text-transform: uppercase;
+	
+}
+
+div#content {
+	font-size: .8em;
+	line-height: 1.5;
+	width: 500px;
+	margin-left: auto;
+	margin-top: 50px;
+	margin-right: auto;
+	padding-bottom: 15px;
+	border-bottom: thin solid #a6a6a6;
+}
+
+a{
+	color: #741332;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}

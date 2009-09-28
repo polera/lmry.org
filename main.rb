@@ -23,11 +23,15 @@ end
 post '/save' do
   @site = @@site
   @url = params['url']
-  hashed_url = ""
-  1.upto(3) { |x| hashed_url << @@POOL[rand(@@POOL.size - 1)] }
   @existing_destination = Destination.first(:url=>@url)
   if @existing_destination == nil
     @destination = Destination.new
+    hashed_url = ""
+    
+    # Make sure our generated URL doesn't exist already...
+    1.upto(4) { |x| hashed_url << @@POOL[rand(@@POOL.size - 1)] } until \
+    Destination.first(:url_code=>hashed_url) == nil 
+    # Set new destination's attributes
     @destination.attributes = {:url_code=>hashed_url,
                                :url=>@url,
                                :created_by=>env['REMOTE_ADDR'],
@@ -35,13 +39,14 @@ post '/save' do
     @destination.save
     @hash = hashed_url
   else
+    @recycled_link = true
     @hash = @existing_destination.url_code
   end
   
   erb :new_url
 end
 
-get '/stats/:redirect/' do
+get '/stats/:redirect' do
   @dest = Destination.first(:url_code=>params['redirect'])
   if @dest == nil
     rase error 'No suck URL found in our database.'

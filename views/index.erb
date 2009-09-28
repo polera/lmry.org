@@ -1,5 +1,13 @@
+<%=erb(:header)%>
+<div id="header">
+    &#8646; lmry <span id="sub50">short urls for nerds and others</span>
+	
+</div>
+<div id="content">
 <form method="post" action="/save">
-    Enter a URL: <input type="text" name="url" />
+    Enter a URL: <input type="text" name="url" size="65"/>
     <br/>
     <input type="Submit" value="Save!"/>
 </form>
+</div>
+<%=erb(:footer)%>
