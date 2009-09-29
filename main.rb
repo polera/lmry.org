@@ -30,7 +30,7 @@ post '/save' do
     
     # Make sure our generated URL doesn't exist already...
     1.upto(4) { |x| hashed_url << @@POOL[rand(@@POOL.size - 1)] } until \
-    Destination.first(:url_code=>hashed_url) == nil 
+    Destination.first(:url_code=>hashed_url) == nil and hashed_url.length > 0
     # Set new destination's attributes
     @destination.attributes = {:url_code=>hashed_url,
                                :url=>@url,
