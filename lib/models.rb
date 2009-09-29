@@ -1,10 +1,12 @@
+require 'dm-validations'
+
 DataMapper.setup(:default, "sqlite3:///#{Dir.pwd}/lmry.db")
 
 class Destination
   include DataMapper::Resource 
   property :id,          Serial
   property :url_code,        String, :key => true
-  property :url,         Text
+  property :url,         Text, :nullable => false, :format => :url
   property :visit_count, Integer, :default => 0
   property :entry_count, Integer, :default => 0
   property :created_at,  DateTime

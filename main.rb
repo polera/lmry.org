@@ -36,8 +36,11 @@ post '/save' do
                                :url=>@url,
                                :created_by=>env['REMOTE_ADDR'],
                                :created_at=>Time.now}
-    @destination.save
-    @hash = hashed_url
+    if @destination.save == false
+      @error = true
+    else
+      @hash = hashed_url
+    end
   else
     @recycled_link = true
     @hash = @existing_destination.url_code

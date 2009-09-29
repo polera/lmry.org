@@ -1,5 +1,14 @@
+<% if @error == true%>
+    Oh no!  Something has gone horribly wrong:
+    <ul>
+    <%@destination.errors.each do |e|%>
+          <li><%=e%></li>
+    <%end%>
+    </ul>
+<% else %>
 <h2>Your shortened URL is:</h2>
-    <% if @recyled_link.to_s == 'true'%>
-        Hey, this URL is recycled.  Must be popular...
-    <% end %>
 <h2><a href="<%=@site%>/<%=@hash%>"><%=@site%>/<%=@hash%></a></h2>
+    <% if @recycled_link == true%>
+        <h3>&#9842; - this URL is recycled (first saved on <%=@existing_destination.created_at.strftime("%m/%d/%Y")%>).</h3>
+    <% end %>
+<% end %>
