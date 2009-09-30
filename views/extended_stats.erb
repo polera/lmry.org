@@ -11,7 +11,7 @@
 <h2>Recent Referrers</h2>
 <table class='url_data'>
 <% for hit in @dest.hits %>
-  <tr><td><%=hit.referrer%></td><td><%=hit.time_stamp.strftime("%m/%d/%Y %h:%m:%s")%>
+  <tr><td><%=hit.referrer%></td><td><%=hit.time_stamp.strftime("%m/%d/%Y %H:%M:%S")%></td></tr>
 <% end %>
 </table>
 <% else %>
