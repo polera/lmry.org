@@ -4,7 +4,7 @@
     <table class='url_data'>
         <tr><td>Visit count</td><td><%=@dest.visit_count%></td></tr>
         <tr><td>Created on</td><td><%=@dest.created_at.strftime("%m/%d/%Y")%></td></tr>
-        <tr><td>Continue percentage</td><td><%=(@dest.hits.count() / @dest.visit_count.to_f)%>%</td></tr>
+        <tr><td>Continue percentage</td><td><%=(@dest.visit_count/@dest.hits.count().to_f)%>%</td></tr>
         <tr><td>Staff verified</td><td><%=@dest.staff_verified%></td></tr>
     </table>
 <% if @dest.hits.count() > 0 %>
