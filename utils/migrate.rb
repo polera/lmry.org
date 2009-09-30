@@ -4,6 +4,7 @@ require 'dm-core'
 require 'lib/models.rb'
 
 Destination.auto_migrate!
+Hit.auto_migrate!
 
 # Populate some sample data
 

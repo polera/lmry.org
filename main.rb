@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'dm-aggregates'
 require 'lib/models.rb'
 
 @@POOL = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a

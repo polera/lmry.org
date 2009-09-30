@@ -1,4 +1,21 @@
-<%=@dest.url_code%>
+<%=erb(:header)%>
+<div id="content">
+    <h2><%=@dest.url_code%> ==> <a href="#" onclick="document.forms.follow_link.submit();"><%=@dest.url%></a></h2>
+    <table class='url_data'>
+        <tr><td>Visit count</td><td><%=@dest.visit_count%></td></tr>
+        <tr><td>Created on</td><td><%=@dest.created_at.strftime("%m/%d/%Y")%></td></tr>
+        <tr><td>Continue percentage</td><td><%=@visit_ratio%>%</td></tr>
+        <tr><td>Staff verified</td><td><%=@dest.staff_verified%></td></tr>
+    </table>
+<% if @dest.hits.count() > 0 %>
+<h2>Recent Referrers</h2>
+<table class='url_data'>
 <% for hit in @dest.hits %>
-  <%=hit.referrer%><br/>
+  <tr><td><%=hit.referrer%></td><td><%=hit.time_stamp.strftime("%m/%d/%Y %h:%m:%s")%>
 <% end %>
+</table>
+<% else %>
+<h3>No referrer data yet!</h3>
+<% end %>
+</div>
+<%=erb(:footer)%>
