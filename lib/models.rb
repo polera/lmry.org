@@ -1,6 +1,6 @@
 require 'dm-validations'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://lmry.db')
 
 class Destination
   include DataMapper::Resource 
