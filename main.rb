@@ -84,7 +84,7 @@ end
 
 get '/data/listing' do
     @destinations = Destination.all()
-    erb :destinations
+    erb :listing
 end
 
 get '/' do
