@@ -82,6 +82,11 @@ get '/:redirect' do
   erb :url_info
 end
 
+get '/data/listing' do
+    @destinations = Destination.all()
+    erb :destinations
+end
+
 get '/' do
   @version = Sinatra::VERSION
   erb :index
