@@ -90,12 +90,12 @@ end
 
 get '/data/listing/csv' do
   require 'fastercsv'
-  FasterCSV.open('/tmp/lmry.csv','w') do |csv|
+  FasterCSV.open('./tmp/lmry.csv','w') do |csv|
     Destination.all().each { |dest|
       csv << [dest.id, dest.url_code, dest.url]
     }
   end
-  send_file('/tmp/lmry.csv')
+  send_file('./tmp/lmry.csv')
 end
 
 get '/' do
