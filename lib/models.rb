@@ -1,7 +1,7 @@
 require 'dm-validations'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://lmry.db')
-
+  #  DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://lmry.db')
+  DataMapper.setup(:default, 'sqlite3:///Users/james/org/projects/heroku/lmry.org/lmry.db')
 class Destination
   include DataMapper::Resource 
   property :id,          Serial

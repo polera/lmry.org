@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'dm-core'
 require 'dm-aggregates'
+require 'dm-serializer'
 require 'lib/models.rb'
 
 @@POOL = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
@@ -80,6 +81,20 @@ get '/:redirect' do
   @dest.save
   @visit_ratio = (@dest.visit_count/@dest.entry_count.to_f * 100).to_i
   erb :url_info
+end
+
+get '/data/listing' do
+  @destinations = Destination.all()
+  erb :listing
+end
+
+get '/data/listing/csv' do
+  FasterCSV.open('/tmp/lmry.csv','w') do |csv|
+    Destination.all().each { |dest|
+      csv << [dest.id, dest.hash, dest.url]
+    }
+  end
+  send_file('/tmp/lmry.csv')
 end
 
 get '/' do
