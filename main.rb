@@ -89,6 +89,7 @@ get '/data/listing' do
 end
 
 get '/data/listing/csv' do
+  require 'fastercsv'
   FasterCSV.open('/tmp/lmry.csv','w') do |csv|
     Destination.all().each { |dest|
       csv << [dest.id, dest.hash, dest.url]
