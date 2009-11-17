@@ -99,6 +99,5 @@ get '/data/listing/csv' do
 end
 
 get '/' do
-  @version = Sinatra::VERSION
   erb :index
 end
