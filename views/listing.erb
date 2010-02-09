@@ -2,7 +2,7 @@
 <div id="content">
 <ul>
 <% for destination in @destinations %>
-  <li><a href="<%=destination.url%>"><%=destination.url%></a></li>
+  <li>(<a href="http://lmry.org/<%=destination.url_code%>"><%=destination.url_code%></a>) - <a href="<%=destination.url%>"><%=destination.url%></a></li>
 <% end %>
 </ul>
 </div>
